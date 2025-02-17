@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExplorumGames Docs</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #1a052b, #2d0a4d);
+            font-family: Arial, sans-serif;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header-buttons {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .container {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            width: 80%;
+            max-width: 800px;
+            margin: 2rem 0;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            background: #6a1b9a;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #8e24aa;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            color: #b57edc;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        .step {
+            background: rgba(0,0,0,0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1rem 0;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 1rem;
+            background: rgba(0,0,0,0.2);
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #d8bfd8;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-buttons">
+        <a href="#" class="btn">Download App</a>
+        <a href="#" class="btn">Download Sources</a>
+    </div>
+    
+    <div class="container">
+        <h2>Installation Guide</h2>
+        <div class="step">
+            <h3>Step 1: Preparation</h3>
+            <p>[]</p>
+        </div>
+        <div class="step">
+            <h3>Step 2: Installation</h3>
+            <p>[]</p>
+        </div>
+        <div class="step">
+            <h3>Step 3: Configuration</h3>
+            <p>[]</p>
+        </div>
+        <div class="step">
+            <h3>Step 4: Launch</h3>
+            <p>[]</p>
+        </div>
+    </div>
+
+    <footer>
+        © 2025 ExplorumGames. All rights reserved.
+    </footer>
+
+    <script>
+        // Add any interactive functionality here
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.target.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    e.target.style.transform = '';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
