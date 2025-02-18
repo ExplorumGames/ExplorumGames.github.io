@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Title Extractor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter JSON Data</h2>
+    <textarea id="jsonInput" placeholder='Paste JSON here...'></textarea>
+    <br>
+    <button onclick="extractTitles()">Extract Titles</button>
+    <h3>Titles:</h3>
+    <textarea id="titleOutput" readonly style="width: 100%; height: 150px;"></textarea>
+
+    <script>
+        function extractTitles() {
+            const input = document.getElementById("jsonInput").value;
+            const titleOutput = document.getElementById("titleOutput");
+            titleOutput.value = "";
+            
+            try {
+                const data = JSON.parse(input);
+                if (!data.downloads || !Array.isArray(data.downloads)) {
+                    throw new Error("Invalid JSON format");
+                }
+                
+                const titles = data.downloads.map(item => item.title).filter(title => title).join("\n");
+                titleOutput.value = titles;
+            } catch (error) {
+                alert("Invalid JSON. Please check your input.");
+            }
+        }
+    </script>
+</body>
+</html>
