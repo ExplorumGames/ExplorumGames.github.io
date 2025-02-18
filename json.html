@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Editor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .download-entry {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background: #fafafa;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            background: #28a745;
+            color: white;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>JSON Editor</h2>
+        <label>Name: <input type="text" id="name" value="Global"></label>
+        <div id="downloads"></div>
+        <button onclick="addDownload()">Add Download</button>
+        <button onclick="exportJSON()" style="background:#007bff;">Export JSON</button>
+        <pre id="output"></pre>
+    </div>
+    <script>
+        const downloadsContainer = document.getElementById("downloads");
+        function addDownload() {
+            const div = document.createElement("div");
+            div.className = "download-entry";
+            div.innerHTML = `
+                <label>Title: <input type="text"></label><br>
+                <label>File Size: <input type="text"></label><br>
+                <label>URIs: <input type="text" placeholder="Comma separated"></label><br>
+                <label>Upload Date: <input type="date"></label><br>
+                <button onclick="this.parentElement.remove()" style="background:#dc3545;">Remove</button>
+            `;
+            downloadsContainer.appendChild(div);
+        }
+        function exportJSON() {
+            const name = document.getElementById("name").value;
+            const downloads = [];
+            document.querySelectorAll(".download-entry").forEach(entry => {
+                const inputs = entry.getElementsByTagName("input");
+                downloads.push({
+                    title: inputs[0].value,
+                    fileSize: inputs[1].value,
+                    uris: inputs[2].value.split(",").map(u => u.trim()),
+                    uploadDate: inputs[3].value
+                });
+            });
+            document.getElementById("output").textContent = JSON.stringify({ name, downloads }, null, 4);
+        }
+    </script>
+</body>
+</html>
