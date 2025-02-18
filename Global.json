@@ -1,11 +1,13 @@
 {
-  "name": "Global",
-  "downloads": [
-    {
-      "title": "string",
-      "fileSize": "string",
-      "uris": ["string"],
-      "uploadDate": "string"
-    }
-  ]
+    "name": "Global",
+    "downloads": [
+        {
+            "title": "Balatro",
+            "fileSize": "56.86 MB",
+            "uris": [
+                "https://www.mediafire.com/file/1jdmu5b93fgm824"
+            ],
+            "uploadDate": "2025-02-17"
+        }
+    ]
 }
